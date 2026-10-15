@@ -1,0 +1,248 @@
+[
+ {
+  "fn": "holeTruth",
+  "args": [
+   12,
+   30
+  ],
+  "out": "The auger claims 30 seconds a hole; 12 holes is 6.0 minutes of drilling - done before the concrete sets."
+ },
+ {
+  "fn": "holeTruth",
+  "args": [
+   1,
+   45
+  ],
+  "out": "The auger claims 45 seconds a hole; 1 hole is 0.8 minutes of drilling - done before the concrete sets."
+ },
+ {
+  "fn": "holeTruth",
+  "args": [
+   20,
+   60
+  ],
+  "out": "The auger claims 60 seconds a hole; 20 holes is 20.0 minutes of drilling - a working hour."
+ },
+ {
+  "fn": "holeTruth",
+  "args": [
+   40,
+   90
+  ],
+  "out": "The auger claims 90 seconds a hole; 40 holes is 60.0 minutes of drilling - an honest afternoon."
+ },
+ {
+  "fn": "holeTruth",
+  "args": [
+   80,
+   90
+  ],
+  "out": "The auger claims 90 seconds a hole; 80 holes is 120.0 minutes of drilling - a two-day rental honestly."
+ },
+ {
+  "fn": "holeTruth",
+  "args": [
+   10,
+   59
+  ],
+  "out": "The auger claims 59 seconds a hole; 10 holes is 9.8 minutes of drilling - done before the concrete sets."
+ },
+ {
+  "fn": "holeTruth",
+  "args": [
+   0,
+   30
+  ],
+  "err": "the hole count must be above zero"
+ },
+ {
+  "fn": "holeTruth",
+  "args": [
+   12,
+   0
+  ],
+  "err": "the claimed seconds must be above zero"
+ },
+ {
+  "fn": "depthTruth",
+  "args": [
+   8,
+   4
+  ],
+  "out": "An 8-foot post standing 4 feet above ground buries 4.0 feet - the one-third rule holds."
+ },
+ {
+  "fn": "depthTruth",
+  "args": [
+   6,
+   4
+  ],
+  "out": "A 6-foot post standing 4 feet above ground buries 2.0 feet - the one-third rule holds."
+ },
+ {
+  "fn": "depthTruth",
+  "args": [
+   10,
+   7
+  ],
+  "out": "A 10-foot post standing 7 feet above ground buries 3.0 feet - a quarter buried honestly."
+ },
+ {
+  "fn": "depthTruth",
+  "args": [
+   8,
+   5
+  ],
+  "out": "An 8-foot post standing 5 feet above ground buries 3.0 feet - the one-third rule holds."
+ },
+ {
+  "fn": "depthTruth",
+  "args": [
+   4,
+   3
+  ],
+  "out": "A 4-foot post standing 3 feet above ground buries 1.0 foot - a quarter buried honestly."
+ },
+ {
+  "fn": "depthTruth",
+  "args": [
+   0,
+   4
+  ],
+  "err": "the post length must be above zero"
+ },
+ {
+  "fn": "depthTruth",
+  "args": [
+   8,
+   0
+  ],
+  "err": "the above-ground height must be above zero"
+ },
+ {
+  "fn": "depthTruth",
+  "args": [
+   8,
+   8
+  ],
+  "err": "the above-ground height must be less than the post length"
+ },
+ {
+  "fn": "depthTruth",
+  "args": [
+   8,
+   9
+  ],
+  "err": "the above-ground height must be less than the post length"
+ },
+ {
+  "fn": "mixTruth",
+  "args": [
+   12,
+   10,
+   36,
+   0.6
+  ],
+  "out": "12 holes 10 inches wide and 36 inches deep take about 19.6 cubic feet of concrete - about 33 bags of 0.6 cubic feet each, a pallet honestly."
+ },
+ {
+  "fn": "mixTruth",
+  "args": [
+   1,
+   8,
+   24,
+   0.6
+  ],
+  "out": "1 hole 8 inches wide and 24 inches deep takes about 0.7 cubic feet of concrete - about 2 bags of 0.6 cubic feet each, a few bags at the truck."
+ },
+ {
+  "fn": "mixTruth",
+  "args": [
+   6,
+   10,
+   36,
+   0.6
+  ],
+  "out": "6 holes 10 inches wide and 36 inches deep take about 9.8 cubic feet of concrete - about 17 bags of 0.6 cubic feet each, a stack of bags honestly."
+ },
+ {
+  "fn": "mixTruth",
+  "args": [
+   15,
+   10,
+   36,
+   0.6
+  ],
+  "out": "15 holes 10 inches wide and 36 inches deep take about 24.5 cubic feet of concrete - about 41 bags of 0.6 cubic feet each, a pallet honestly."
+ },
+ {
+  "fn": "mixTruth",
+  "args": [
+   40,
+   12,
+   36,
+   0.6
+  ],
+  "out": "40 holes 12 inches wide and 36 inches deep take about 94.2 cubic feet of concrete - about 158 bags of 0.6 cubic feet each, a pallet honestly."
+ },
+ {
+  "fn": "mixTruth",
+  "args": [
+   12,
+   10,
+   36,
+   0.45
+  ],
+  "out": "12 holes 10 inches wide and 36 inches deep take about 19.6 cubic feet of concrete - about 44 bags of 0.45 cubic feet each, a pallet honestly."
+ },
+ {
+  "fn": "mixTruth",
+  "args": [
+   3,
+   6,
+   18,
+   0.6
+  ],
+  "out": "3 holes 6 inches wide and 18 inches deep take about 0.9 cubic feet of concrete - about 2 bags of 0.6 cubic feet each, a few bags at the truck."
+ },
+ {
+  "fn": "mixTruth",
+  "args": [
+   0,
+   10,
+   36,
+   0.6
+  ],
+  "err": "the hole count must be above zero"
+ },
+ {
+  "fn": "mixTruth",
+  "args": [
+   12,
+   0,
+   36,
+   0.6
+  ],
+  "err": "the hole diameter must be above zero"
+ },
+ {
+  "fn": "mixTruth",
+  "args": [
+   12,
+   10,
+   0,
+   0.6
+  ],
+  "err": "the depth must be above zero"
+ },
+ {
+  "fn": "mixTruth",
+  "args": [
+   12,
+   10,
+   36,
+   0
+  ],
+  "err": "the bag yield must be above zero"
+ }
+]
