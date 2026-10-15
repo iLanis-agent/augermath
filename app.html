@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auger Math</title>
+<style>
+  :root { --accent: #3e3a6e; --warn: #a83232; }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 32px 16px 64px; background: #f7f7fa; color: #252429;
+         font-family: Georgia, 'Times New Roman', serif; }
+  main { max-width: 680px; margin: 0 auto; }
+  h1 { color: var(--accent); font-size: 2.2rem; margin: 0 0 4px; }
+  .tag { font-style: italic; color: var(--accent); margin: 0 0 28px; }
+  .boundary { border-left: 4px solid var(--warn); background: #fdf1f1; padding: 16px 20px;
+              border-radius: 8px; margin: 0 0 28px; }
+  .boundary h2 { color: var(--warn); font-size: 1.1rem; margin: 0 0 8px; }
+  .boundary p { margin: 0; line-height: 1.5; }
+  .card { background: #fff; border: 1px solid #dedde6; border-left: 4px solid var(--accent);
+          border-radius: 8px; padding: 20px 24px; margin: 0 0 24px; }
+  .card h2 { margin: 0 0 14px; font-size: 1.25rem; }
+  label { display: block; font-size: 0.95rem; margin: 10px 0 4px; }
+  input { width: 100%; max-width: 220px; padding: 8px 10px; font-size: 1rem;
+          border: 1px solid #c6c4d2; border-radius: 6px; background: #f1f1f5; }
+  .out { margin-top: 16px; font-size: 1.05rem; font-weight: bold; color: var(--accent);
+         line-height: 1.5; }
+  .out.err { color: var(--warn); }
+  footer { margin-top: 32px; font-size: 0.85rem; color: #807e8c; line-height: 1.5; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Auger Math</h1>
+  <p class="tag">Hole truth, depth truth and mix truth - labeled norms, honest arithmetic.</p>
+
+  <div class="boundary">
+    <h2>The boundary</h2>
+    <p>Auger Math keeps drilling-time, burial-fraction and concrete arithmetic only. It gives no
+    verdicts about what any auger can bite through - soil, roots and rock are the rental counter's
+    and the manual's call. Always have utilities located before any dig: in the US call 811,
+    elsewhere call your local before-you-dig line.</p>
+  </div>
+
+  <div class="card">
+    <h2>The hole truth</h2>
+    <label for="h-count">Holes to drill</label>
+    <input id="h-count" type="number" step="any" value="12">
+    <label for="h-sec">Claimed seconds per hole</label>
+    <input id="h-sec" type="number" step="any" value="30">
+    <p class="out" id="h-out"></p>
+  </div>
+
+  <div class="card">
+    <h2>The depth truth</h2>
+    <label for="d-post">Post length (feet)</label>
+    <input id="d-post" type="number" step="any" value="8">
+    <label for="d-above">Above-ground height (feet)</label>
+    <input id="d-above" type="number" step="any" value="4">
+    <p class="out" id="d-out"></p>
+  </div>
+
+  <div class="card">
+    <h2>The mix truth</h2>
+    <label for="m-count">Holes to fill</label>
+    <input id="m-count" type="number" step="any" value="12">
+    <label for="m-dia">Hole diameter (inches)</label>
+    <input id="m-dia" type="number" step="any" value="10">
+    <label for="m-depth">Hole depth (inches)</label>
+    <input id="m-depth" type="number" step="any" value="36">
+    <label for="m-yield">Bag yield (cubic feet each)</label>
+    <input id="m-yield" type="number" step="any" value="0.6">
+    <p class="out" id="m-out"></p>
+  </div>
+
+  <footer>
+    Every figure here is hypothetical arithmetic on labeled norms, not a statement about any real
+    machine or jobsite. <a href="index.html">About Auger Math</a>
+  </footer>
+</main>
+<script src="engine.js"></script>
+<script>
+function num(id) { return parseFloat(document.getElementById(id).value); }
+function render(id, fn) {
+  const el = document.getElementById(id);
+  try {
+    el.textContent = fn();
+    el.classList.remove("err");
+  } catch (e) {
+    el.textContent = e.message;
+    el.classList.add("err");
+  }
+}
+function update() {
+  render("h-out", () => holeTruth(num("h-count"), num("h-sec")));
+  render("d-out", () => depthTruth(num("d-post"), num("d-above")));
+  render("m-out", () => mixTruth(num("m-count"), num("m-dia"), num("m-depth"), num("m-yield")));
+}
+document.querySelectorAll("input").forEach(i => i.addEventListener("input", update));
+update();
+</script>
+</body>
+</html>
